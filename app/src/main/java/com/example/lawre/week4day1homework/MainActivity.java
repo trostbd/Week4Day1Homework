@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity
         btNextAct = findViewById(R.id.btNextScreen);
         btNextAct.setText("Go to Repositories");
         btRxJava = findViewById(R.id.btRxJava);
+        btRxJava.setText("Go to RxJava");
         EventBus.getDefault().register(this);
         Call<User> responseCall = RetrofitHelper.getUser("user:trostbd");
         responseCall.enqueue(new Callback<User>() {
@@ -69,6 +70,11 @@ public class MainActivity extends AppCompatActivity
         Intent intent;
         if(view.getId() == R.id.btNextScreen) {
             intent = new Intent(this, SecondScreen.class);
+            startActivity(intent);
+        }
+        else if(view.getId() == R.id.btRxJava)
+        {
+            intent = new Intent(this,RxJava.class);
             startActivity(intent);
         }
     }
